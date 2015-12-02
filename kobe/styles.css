@@ -1,0 +1,30 @@
+body {
+    font-family: 'Helvetica';
+    color: #cbcbcb;
+    background-color: #222424;
+}
+
+#buttonRow {
+    position: relative;
+    width: 1000px;
+    height: 75px;
+    background-color: #EEE;
+}
+
+.switch {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    border: 3px solid #7a6740;
+    background-color: #ddd;
+    top: 20px;
+}
+
+#ButtonPTS {
+    left: 100px;
+}
+
+#Button3PM {
+    left: 300px;
+}
