@@ -7,6 +7,7 @@ var barChart;
 var stats;
 var x, y;
 
+const textColor = '#ddd'
 
 d3.csv('kobeBryant.csv', type, function(error, data) {
     height = (barHeight + 5) * data.length;
@@ -22,7 +23,7 @@ d3.csv('kobeBryant.csv', type, function(error, data) {
         .attr('class', 'container')
         .attr('width', width + padding)
         .attr('height', height)
-        .attr('style', 'background-color: #EEE');
+        .attr('style', 'background-color: ' + textColor);
 
     barChart.selectAll('rect')
         .data(stats)
@@ -33,8 +34,8 @@ d3.csv('kobeBryant.csv', type, function(error, data) {
             return y(i);
         })
         .attr('height', barHeight)
-        .attr('width', 10)
-        .attr('fill', '#2d578b');
+        .attr('width', 100)
+        .attr('fill', '#743596');
 
     barChart.selectAll('textSeason')
         .data(stats)
@@ -50,7 +51,7 @@ d3.csv('kobeBryant.csv', type, function(error, data) {
         .text(function(d) {
             return d.Season;
         })
-        .attr('fill', 'white')
+        .attr('fill', textColor)
         .attr('style', 'font-size: 16; font-family: Helvetica, sans-serif');
 
     barChart.selectAll('textStats')
@@ -70,17 +71,14 @@ d3.csv('kobeBryant.csv', type, function(error, data) {
             return ' ';
         })
         .attr('class', 'textStats')
-        .attr('fill', 'white')
+        .attr('fill', textColor)
         .attr('style', 'font-size: 16; font-family: Helvetica, sans-serif');
 
 
 });
 
 
-function drawChart(queryStat) {
-
-    // barChart.selectAll('text')
-    // .remove();
+function updateChart(queryStat) {
 
     // Calculate X Scale
     x = d3.scale.linear()
@@ -101,10 +99,9 @@ function drawChart(queryStat) {
         .attr('width', function(d) {
             return x(d[queryStat]);
         })
-        .attr('fill', '#2d578b');
-        // .attr("fill", function(d) {
-        //     return "rgb(0, 0, " + (d * 10) + ")";
-        // });
+    // .attr("fill", function(d) {
+    //     return "rgb(0, 0, " + (d * 10) + ")";
+    // });
 
     barChart.selectAll('.textStats')
         .data(stats)
@@ -122,20 +119,35 @@ function drawChart(queryStat) {
         .text(function(d) {
             return d[queryStat] + ' ' + queryStat;
         })
-        .attr('fill', 'white')
         .attr('style', 'font-size: 16; font-family: Helvetica, sans-serif');
-
-
-
 }
 $(document).ready(function() {
     $('#ButtonPTS').click(function() {
-        drawChart('PTS');
-        console.log('PTS');
+        updateChart('PTS');
+    });
+    $('#ButtonFGP').click(function() {
+        updateChart('FGP');
     });
     $('#Button3PM').click(function() {
-        drawChart('3PM');
-        console.log('3PM');
+        updateChart('3PM');
+    });
+    $('#Button3PP').click(function() {
+        updateChart('3PP');
+    });
+    $('#ButtonFTP').click(function() {
+        updateChart('FTP');
+    });
+    $('#ButtonREB').click(function() {
+        updateChart('REB');
+    });
+    $('#ButtonAST').click(function() {
+        updateChart('AST');
+    });
+    $('#ButtonSTL').click(function() {
+        updateChart('STL');
+    });
+    $('#ButtonBLK').click(function() {
+        updateChart('BLK');
     });
 });
 

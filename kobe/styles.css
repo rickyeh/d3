@@ -8,23 +8,26 @@ body {
     position: relative;
     width: 1050px;
     height: 75px;
-    background-color: #EEE;
+    background-color: #ddd;
 }
 
 .switch {
-    position: absolute;
+    float: left;
     width: 100px;
     height: 40px;
     border-radius: 10px;
     border: 3px solid #7a6740;
     background-color: #ddd;
-    top: 20px;
+    margin: 15px 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
 }
 
-#ButtonPTS {
-    left: 100px;
+.switch:hover {
+    background-color: #FBBA2A;
 }
 
-#Button3PM {
-    left: 300px;
+rect:hover {
+    fill: #FBBA2A;
 }
