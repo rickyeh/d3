@@ -13,7 +13,7 @@ d3.csv('kobeBryant.csv', type, function(error, data) {
     stats = data;
 
     // Y Scale
-    y = d3.scale.linear() 
+    y = d3.scale.linear()
         .domain([0, stats.length])
         .range([0, height]);
 
@@ -34,31 +34,6 @@ d3.csv('kobeBryant.csv', type, function(error, data) {
         })
         .attr('height', barHeight)
         .attr('width', 10)
-        .attr('fill', '#2d578b');
-});
-
-
-function drawChart(queryStat) {
-
-    barChart.selectAll('text').remove();
-
-    // Calculate X Scale
-    x = d3.scale.linear()
-        .domain([0, d3.max(stats, function(d) {
-            return +d[queryStat];
-        })])
-        .rangeRound([0, width]);
-
-    barChart.selectAll('rect')
-        .data(stats)
-        .attr('x', 0)
-        .attr('y', function(d, i) {
-            return y(i);
-        })
-        .attr('height', barHeight)
-        .attr('width', function(d) {
-            return x(d[queryStat]);
-        })
         .attr('fill', '#2d578b');
 
     barChart.selectAll('textSeason')
@@ -83,6 +58,59 @@ function drawChart(queryStat) {
         .enter()
         .append('svg:text')
         .attr('x', function(d) {
+            return 200;
+        })
+        .attr('y', function(d, i) {
+            return y(i);
+        })
+        .attr('dx', '-5em')
+        .attr('dy', '1.25em')
+        .attr('text-anchor', 'right')
+        .text(function(d) {
+            return ' ';
+        })
+        .attr('class', 'textStats')
+        .attr('fill', 'white')
+        .attr('style', 'font-size: 16; font-family: Helvetica, sans-serif');
+
+
+});
+
+
+function drawChart(queryStat) {
+
+    // barChart.selectAll('text')
+    // .remove();
+
+    // Calculate X Scale
+    x = d3.scale.linear()
+        .domain([0, d3.max(stats, function(d) {
+            return +d[queryStat];
+        })])
+        .rangeRound([0, width]);
+
+    barChart.selectAll('rect')
+        .data(stats)
+        .transition()
+        .duration(1000)
+        .attr('x', 0)
+        .attr('y', function(d, i) {
+            return y(i);
+        })
+        .attr('height', barHeight)
+        .attr('width', function(d) {
+            return x(d[queryStat]);
+        })
+        .attr('fill', '#2d578b');
+        // .attr("fill", function(d) {
+        //     return "rgb(0, 0, " + (d * 10) + ")";
+        // });
+
+    barChart.selectAll('.textStats')
+        .data(stats)
+        .transition()
+        .duration(1000)
+        .attr('x', function(d) {
             return x(d[queryStat]);
         })
         .attr('y', function(d, i) {
@@ -96,6 +124,8 @@ function drawChart(queryStat) {
         })
         .attr('fill', 'white')
         .attr('style', 'font-size: 16; font-family: Helvetica, sans-serif');
+
+
 
 }
 $(document).ready(function() {
