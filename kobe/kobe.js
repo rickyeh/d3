@@ -1,6 +1,6 @@
 var width = 1000;
 var height;
-var barHeight = 30;
+var barHeight = 28;
 var padding = 50;
 
 var barChart;
