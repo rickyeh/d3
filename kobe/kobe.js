@@ -7,7 +7,7 @@ var barChart;
 var stats;
 var x, y;
 
-const textColor = '#ddd'
+const textColor = '#fefefe'
 
 d3.csv('kobeBryant.csv', type, function(error, data) {
     height = (barHeight + 5) * data.length;
@@ -23,7 +23,7 @@ d3.csv('kobeBryant.csv', type, function(error, data) {
         .attr('class', 'container')
         .attr('width', width + padding)
         .attr('height', height)
-        .attr('style', 'background-color: ' + textColor);
+        .attr('style', 'background-color: #ddd');
 
     barChart.selectAll('rect')
         .data(stats)
@@ -51,8 +51,8 @@ d3.csv('kobeBryant.csv', type, function(error, data) {
         .text(function(d) {
             return d.Season;
         })
-        .attr('fill', textColor)
-        .attr('style', 'font-size: 16; font-family: Helvetica, sans-serif');
+        .attr('class', 'textSeason')
+        .attr('fill', textColor);
 
     barChart.selectAll('textStats')
         .data(stats)
@@ -71,10 +71,7 @@ d3.csv('kobeBryant.csv', type, function(error, data) {
             return ' ';
         })
         .attr('class', 'textStats')
-        .attr('fill', textColor)
-        .attr('style', 'font-size: 16; font-family: Helvetica, sans-serif');
-
-
+        .attr('fill', textColor);
 });
 
 
@@ -102,10 +99,7 @@ function updateChart(queryStat) {
         .attr('height', barHeight)
         .attr('width', function(d) {
             return x(d[queryStat]);
-        })
-    // .attr("fill", function(d) {
-    //     return "rgb(0, 0, " + (d * 10) + ")";
-    // });
+        });
 
     barChart.selectAll('.textStats')
         .data(stats)
@@ -122,8 +116,7 @@ function updateChart(queryStat) {
         .attr('text-anchor', 'right')
         .text(function(d) {
             return d[queryStat] + ' ' + queryStat;
-        })
-        .attr('style', 'font-size: 16; font-family: Helvetica, sans-serif');
+        });
 }
 $(document).ready(function() {
     $('#ButtonPTS').click(function() {
