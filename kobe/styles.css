@@ -4,11 +4,100 @@ body {
     background-color: #222424;
 }
 
+.noMargin {
+    margin: 1px;
+    padding: 1px;
+}
+
+.absolute {
+    position: absolute;
+}
+
+#wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1050px
+}
+
+#header {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: 250px;
+}
+
+#headshot {
+    height: 100%;
+    width: 35%;
+}
+
+#lalLogo {
+    left: 10%;
+    top: 20%;
+    opacity: .3;
+}
+
+#bio {
+    right: 0;
+    width: 65%;
+    height: 100%;
+}
+
+#bioContainer {
+    width: 80%;
+    margin-top: 40px;
+    margin-left: 50px;
+}
+
 #buttonRow {
     position: relative;
     width: 1050px;
     height: 75px;
     background-color: #ddd;
+}
+
+.line-divider {
+    width: 100%;
+    border-top: 1px solid gray;
+    opacity: .5;
+}
+
+.teamData {
+    width: 100%;
+}
+
+.teamDataUL {
+    padding: 10px 0px;
+}
+
+.horizontalList {
+    display: inline;
+    list-style-type: none;
+    padding: 0px 10px;
+}
+
+.rightBorder {
+    border-right: 1px solid rgba(255,255,255,.3);
+}
+
+.first {
+    padding-left: 0px;
+}
+
+.noBullet {
+    list-style-type: none;
+}
+
+.playerData {
+    font-size: .9em;
+}
+
+span {
+    color: #777;
+    width: 100px;
+    display: block;
+    float: left;
 }
 
 .switch {
@@ -31,3 +120,4 @@ body {
 rect:hover {
     fill: #FBBA2A;
 }
+

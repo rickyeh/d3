@@ -9,19 +9,48 @@
     <head>
 
     <body>
-        <h1>Kobe Bryant Career Stats</h1>
-        <div id="buttonRow">
-            <button id="ButtonPTS" class="switch">PTS</button>
-            <button id="ButtonFGP" class="switch">FG%</button>
-            <button id="Button3PM" class="switch">3PM</button>
-            <button id="Button3PP" class="switch">3P%</button>
-            <button id="ButtonFTP" class="switch">FT%</button>
-            <button id="ButtonREB" class="switch">REB</button>
-            <button id="ButtonAST" class="switch">AST</button>
-            <button id="ButtonSTL" class="switch">STL</button>
-            <button id="ButtonBLK" class="switch">BLK</button>
+        <div id="wrapper">
+            <div id="header">
+                <div id="headshot" class="absolute">
+                    <img id="lalLogo" class="absolute" src="lal.png">
+                    <img id="kobeHeadshot" class="absolute" src="kobe.png">
+                </div>
+                <div id="bio" class="absolute">
+                    <div id="bioContainer" class="absolute">
+                        <h1 class="noMargin">Kobe Bryant Career Stats</h1>
+                        <div class="line-divider"></div>
+                        <div class="teamData">
+                            <ul class="noMargin teamDataUL">
+                                <li class="horizontalList rightBorder first">#24 SF</li>
+                                <li class="horizontalList rightBorder">6'6"</li>
+                                <li class="horizontalList rightBorder">212lbs</li>
+                                <li class="horizontalList">Los Angeles Lakers</li>
+                            </ul>
+                        </div>
+                        <div class="playerData">
+                            <ul class="noMargin noBullet">
+                                <li><span>Born</span> Aug 23, 1978 in Philadelphia, PA (Age:37)</li>
+                                <li><span>Drafted</span> 1996: 1st Rnd, 13th by CHA</li>
+                                <li><span>College</span> None</li>
+                                <li><span>Experience</span> 19 Years</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="buttonRow">
+                <button id="ButtonPTS" class="switch">PTS</button>
+                <button id="ButtonFGP" class="switch">FG%</button>
+                <button id="Button3PM" class="switch">3PM</button>
+                <button id="Button3PP" class="switch">3P%</button>
+                <button id="ButtonFTP" class="switch">FT%</button>
+                <button id="ButtonREB" class="switch">REB</button>
+                <button id="ButtonAST" class="switch">AST</button>
+                <button id="ButtonSTL" class="switch">STL</button>
+                <button id="ButtonBLK" class="switch">BLK</button>
+            </div>
+            <div id="container"></div>
         </div>
-        <div id="container"></div>
         <script type="text/javascript" src="kobe.js"></script>
     </body>
 </html>
