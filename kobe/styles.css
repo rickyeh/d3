@@ -1,6 +1,7 @@
 body {
     font-family: 'Open Sans', 'Helvetica', 'sans-serif';
-    color: #cbcbcb;
+    text-shadow: 2px 2px #222;
+    color: #cdcdcd;
     background-color: #222424;
 }
 
