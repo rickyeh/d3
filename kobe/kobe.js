@@ -80,6 +80,10 @@ d3.csv('kobeBryant.csv', type, function(error, data) {
 
 function updateChart(queryStat) {
 
+    // Highlight corresponding box
+    $('.switch').removeClass('goldFill');
+    $('#Button' + queryStat).addClass('goldFill');
+
     // Calculate X Scale
     x = d3.scale.linear()
         .domain([0, d3.max(stats, function(d) {
