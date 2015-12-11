@@ -7,7 +7,7 @@ var barChart;
 var stats;
 var x, y;
 
-const textColor = '#fefefe'
+var textColor = '#fefefe'
 
 d3.csv('kobeBryant.csv', type, function(error, data) {
     height = (barHeight + 5) * data.length;
@@ -76,11 +76,6 @@ d3.csv('kobeBryant.csv', type, function(error, data) {
 
 
 function updateChart(queryStat) {
-
-    // Highlight corresponding box
-    $('.switch').removeClass('goldFill');
-    $('#Button' + queryStat).addClass('goldFill');
-
     // Calculate X Scale
     x = d3.scale.linear()
         .domain([0, d3.max(stats, function(d) {
@@ -118,35 +113,52 @@ function updateChart(queryStat) {
             return d[queryStat] + ' ' + queryStat;
         });
 }
+
+function updateHighlight(button) {
+    // Highlight corresponding box
+    $('.switch').removeClass('goldFill');
+    $(button).addClass('goldFill');
+}
+
 $(document).ready(function() {
     $('#ButtonPTS').click(function() {
         updateChart('PTS');
+        updateHighlight(this);
     });
     $('#ButtonFGP').click(function() {
         updateChart('FGP');
+        updateHighlight(this);
     });
     $('#Button3PM').click(function() {
         updateChart('3PM');
+        updateHighlight(this);
     });
     $('#Button3PP').click(function() {
-        updateChart('3PP');
+        updateChart('3P%');
+        updateHighlight(this);
     });
     $('#ButtonFTP').click(function() {
-        updateChart('FTP');
+        updateChart('FT%');
+        updateHighlight(this);
     });
     $('#ButtonREB').click(function() {
         updateChart('REB');
+        updateHighlight(this);
     });
     $('#ButtonAST').click(function() {
         updateChart('AST');
+        updateHighlight(this);
     });
     $('#ButtonSTL').click(function() {
         updateChart('STL');
+        updateHighlight(this);
     });
     $('#ButtonBLK').click(function() {
         updateChart('BLK');
+        updateHighlight(this);
     });
 });
+
 
 function removeCharts() {
     var barChart = d3.select('#container');
